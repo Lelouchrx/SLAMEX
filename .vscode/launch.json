@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "C/C++: g++ build and debug active file",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}", //指定要调试的程序
+            "args": [], // 程序运行时，传递给程序的参数！比如：["./ubuntu.png"]
+            "stopAtEntry": false, //目标开头处是否停止，一般false
+            "cwd": "${fileDirname}", //目标的工作目录,相当于在终端里哪个路径位置，运行的程序
+            "environment": [],
+            "externalConsole": false, //是否在外部终端显示输出
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb", //为gdb启用整齐打印
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "Set Disassembly Flavor to Intel", //将反汇编风格设置为Intel
+                    "text": "-gdb-set disassembly-flavor intel",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "C/C++: g++ build active file",
+            "miDebuggerPath": "/usr/bin/gdb"
+        }
+    ],
+    "version": "2.0.0"
+}
