@@ -14,9 +14,23 @@
                 "-g",
                 "${file}", //要编译的cpp文件，可改为"${workspaceFolder}/*.cpp"，则编译所有cpp文件
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}" // 输出名字
-	            // "-std=c++11",   //使用c++11
+                "${fileDirname}/${fileBasenameNoExtension}", // 输出名字
+	            "-std=c++11",   //使用c++11
 	            // "-lpthread"       //链接thread库
+
+                // "`pkg-config --libs --cflags opencv4`"
+
+                /* 项目所需的头文件路径 */
+                "-I","${workspaceFolder}/",
+                "-I","/usr/local/include/",
+                "-I","/usr/local/include/opencv4/",
+                "-I","/usr/local/include/opencv4/opencv2",
+ 
+                /* 项目所需的库文件路径 */
+                "-L", "/usr/local/lib",
+ 
+                /* OpenCV的lib库 */
+                "/usr/local/lib/libopencv_*"
             ],
             "options": {
                 "cwd": "${fileDirname}"
